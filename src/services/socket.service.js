@@ -20,7 +20,7 @@ async function startSocketService() {
 
 function broadcastNewData(data) {
     const jsonData = JSON.stringify({
-        event: 'data_mqtt',
+        event: 'data_beltway_mqtt',
         data: data
     });
     
