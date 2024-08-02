@@ -15,9 +15,6 @@ async function startSocketService() {
         });
     });
 }
-
-
-
 function broadcastNewData(data,clientID) {
     const jsonData = JSON.stringify({
         event: 'data_beltway_mqtt',
