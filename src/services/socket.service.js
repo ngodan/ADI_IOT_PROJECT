@@ -18,10 +18,11 @@ async function startSocketService() {
 
 
 
-function broadcastNewData(data) {
+function broadcastNewData(data,clientID) {
     const jsonData = JSON.stringify({
         event: 'data_beltway_mqtt',
-        data: data
+        data: data,
+        clientID:clientID
     });
     
     wss.clients.forEach(function each(client) {

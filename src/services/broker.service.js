@@ -17,7 +17,7 @@ async function startBrokerMQTTService() {
             console.log('Message from client:', client.id);
             if (packet.topic === "DATA") {
                 let data = await exchangeData(JSON.parse(packet.payload.toString()).sensorDatas)
-                broadcastNewData(data)
+                broadcastNewData(data,client.id)
             }
         }
     });
