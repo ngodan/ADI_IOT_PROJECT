@@ -83,8 +83,8 @@ function getResultDataFromByte(bytedata, type, mode = 0) {
                 const fRate = dataView.getFloat32(17, false);
                 return Math.round(fRate).toString();
             } else { // "speed"
-               // const fSpeed = dataView.getFloat32(21, false) / 60;
-                const fSpeed = dataView.getFloat32(23, false) / 60;
+                const fSpeed = dataView.getFloat32(21, false) / 60;
+               // const fSpeed = dataView.getFloat32(23, false) / 60;
                 return fSpeed.toFixed(2);
             }
         } else {

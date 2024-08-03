@@ -1,7 +1,7 @@
 const aedes = require('aedes')();
 const server = require('net').createServer(aedes.handle);
-const {broadcastNewData} = require("./socket.service")
-const {exchangeData} = require('./data/broker.data.service')
+const { broadcastNewData } = require("./socket.service")
+const { exchangeData } = require('./data/broker.data.service')
 const PORT = process.env.BROKER_PORT || 1883;
 
 async function startBrokerMQTTService() {
@@ -11,7 +11,6 @@ async function startBrokerMQTTService() {
     aedes.on('client', function (client) {
         console.log('Client Connected:', client.id);
     });
-
     aedes.on('publish', async function (packet, client) {
         if (client) {
             console.log('Message from client:', client.id);
@@ -26,13 +25,11 @@ async function startBrokerMQTTService() {
             console.log('Subscribe from', client.id, 'to', subscriptions.map(s => s.topic).join(', '));
         }
     });
-    
     aedes.on('clientDisconnect', function (client) {
         console.log('Client Disconnected:', client.id);
     });
     
 }
-
 module.exports = {startBrokerMQTTService};
 
 
